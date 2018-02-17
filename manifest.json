@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "Remember My Cart",  
+    "description": "Load cart items",  
+    "version": "1.0",    
+    "permissions": ["tabs", "<all_urls>"],  
+
+    "browser_action": { 
+	"default_icon": "shopping_cart.png", 
+    "default_popup": "popup.html"  
+    },
+	"background":{
+    "scripts":["background.js"]
+	},
+	"content_scripts": [{
+      "matches": ["http://www.ynet.co.il/*"],
+      "js": ["malka.js"]
+    }]
+}
