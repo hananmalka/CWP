@@ -1,19 +1,31 @@
 {
-    "manifest_version": 2,
-    "name": "Remember My Cart",  
-    "description": "Load cart items",  
-    "version": "1.0",    
-    "permissions": ["tabs", "<all_urls>"],  
-
-    "browser_action": { 
-	"default_icon": "shopping_cart.png", 
-    "default_popup": "popup.html"  
-    },
-	"background":{
-    "scripts":["background.js"]
-	},
-	"content_scripts": [{
-      "matches": ["http://www.ynet.co.il/*"],
-      "js": ["malka.js"]
-    }]
+  "manifest_version": 2,
+  "name": "CWP",
+  "description": "CWP",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_icon": "shopping_cart.png",
+    "default_popup": "./src/popup/popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "css": ["./src/content/content-style.css"],
+      "js": [
+        "./node_modules/jquery/dist/jquery.min.js",
+        "./dist/content/elements-removal.js"
+      ],
+      "matches": [
+        "https://www.ynet.co.il/*"
+      ]
+    }
+  ]
 }
